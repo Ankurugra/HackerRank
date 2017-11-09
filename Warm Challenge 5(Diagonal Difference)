@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int sum1 = 0, sum2= 0;
+        int[][] ar = new int[n][n];
+        for(int i = 0 ;i <n ; i++){
+            for(int j =0 ; j< n ; j++){
+                ar[i][j] = in.nextInt();
+            }}
+          
+            
+       for(int i = 0 ;i <n ; i++){
+                sum1  = sum1 + ar[i][i];
+            }
+        
+            
+       for(int i = 0 ;i <n ; i++){
+            int mod = i - (n-1);
+             int temp  = Math.abs(mod);
+                sum2  = sum2 + ar[i][temp];
+            }
+        
+       
+        int mod2 = sum1 - sum2;
+        
+            
+            System.out.println(Math.abs(mod2));
+        
+                
+        } 
+    }
