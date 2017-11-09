@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+
+public class Solution {
+  
+    static String timeConversion(String s){     
+        String am_or_pm = s.substring(8,10);
+        String[] parts = s.split(":");
+        String firstpart = parts[0];
+        String answer;
+        int int_hour = Integer.parseInt(firstpart);
+        if (am_or_pm.equals("PM") && !firstpart.equals("12")){
+            int_hour = int_hour + 12 ;
+            String string_hour = Integer.toString(int_hour);            
+            String thirdpart = parts[2].substring(0,2); 
+            answer = string_hour + ":" + parts[1] + ":" + thirdpart ;
+        }
+        else{
+            if(firstpart.equals("12") && !am_or_pm.equals("PM")){
+             int_hour = int_hour - 12 ;
+             String string_hour = Integer.toString(int_hour);            
+             String thirdpart = parts[2].substring(0,2); 
+             answer = '0' + string_hour + ":" + parts[1] + ":" + thirdpart ;
+             }
+            else{
+             answer = s.substring(0,8);
+            }
+            
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = timeConversion(s);
+        System.out.println(result);
+    }
+}
