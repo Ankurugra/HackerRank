@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] ar = new int[n];
+        for(int ar_i = 0; ar_i < n; ar_i++){
+            ar[ar_i] = in.nextInt();
+        }
+        long[] sum = new long[3];
+        double count0 = 0, count1=0, count2 = 0;
+       
+        for(int i = 0 ;i< ar.length; i++){
+            if(ar[i] > 0)
+                count0++;
+            if(ar[i]<0)
+                count1++;
+            if(ar[i]==0)
+                count2++;   
+        }
+        System.out.println((count0/n));
+        System.out.println(count1/n);
+        System.out.println(count2/n);
+        
+           
+    }
+}
